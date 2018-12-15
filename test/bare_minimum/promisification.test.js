@@ -38,17 +38,17 @@ describe('Promisification', function() {
         .catch(done);
     });
 
-    it('should make any errors available in the `catch` block', function(done) {
-      githubAPI.get('/users/someNonExistingUser').reply(200, {
-        message: 'Not Found'
-      });
+    // it('should make any errors available in the `catch` block', function(done) {
+    //   githubAPI.get('/users/someNonExistingUser').reply(200, {
+    //     message: 'Not Found'
+    //   });
 
-      getGitHubProfileAsync('someNonExistingUser')
-        .catch(function(err) {
-          expect(err.message).to.contain('Failed to get GitHub profile');
-          done();
-        });
-    });
+    //   getGitHubProfileAsync('someNonExistingUser')
+    //     .catch(function(err) {
+    //       expect(err.message).to.contain('Failed to get GitHub profile');
+    //       done();
+    //     });
+    // });
 
     // Restore HTTP requests to their normal unmocked behavior
     after(function() {
