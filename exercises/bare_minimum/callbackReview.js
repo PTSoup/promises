@@ -12,7 +12,6 @@ var pluckFirstLineFromFile = (filePath, callback) => {
     if (err) {
       callback(err, null);
     } else {
-      
       var firstLine = text.split('\n')[0];
       callback(null, firstLine);
     }

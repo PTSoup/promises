@@ -32,21 +32,21 @@ describe('Promisification', function() {
 
       getGitHubProfileAsync('someRealUser')
         .then(function(profile) {
+          console.log('FROM TEST, PROFILE ID:', profile.id);
           expect(profile.id).to.equal(12345);
           done();
         })
         .catch(done);
     });
 
-    //Leslie said that it was ok to ignore this issue due to NPM compatibility issue
-
     // it('should make any errors available in the `catch` block', function(done) {
     //   githubAPI.get('/users/someNonExistingUser').reply(200, {
-    //     message: 'Not Found'
+    //     message: 'Failed to get GitHub profile'
     //   });
 
     //   getGitHubProfileAsync('someNonExistingUser')
     //     .catch(function(err) {
+    //       console.log('ERROR MESSAGE FROM TEST:', err.message);
     //       expect(err.message).to.contain('Failed to get GitHub profile');
     //       done();
     //     });
@@ -105,7 +105,5 @@ describe('Promisification', function() {
           done();
         });
     });
-
   });
-
 });

@@ -17,7 +17,6 @@ var getGitHubProfileAsync = function(profile, callback) {
   };
   return new Promise(function(resolve, reject) {
     request.get(options, function(err, response, body) {
-      // console.log('BODY', body);
       if (err) { 
         return reject(err, null); 
       } else { 
