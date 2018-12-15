@@ -14,7 +14,6 @@ var pluckFirstLineFromFile = (filePath, callback) => {
     } else {
       
       var firstLine = text.split('\n')[0];
-      console.log('FIRSTLINE', firstLine);
       callback(null, firstLine);
     }
   });

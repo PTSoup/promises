@@ -38,6 +38,8 @@ describe('Promisification', function() {
         .catch(done);
     });
 
+    //Leslie said that it was ok to ignore this issue due to NPM compatibility issue
+
     // it('should make any errors available in the `catch` block', function(done) {
     //   githubAPI.get('/users/someNonExistingUser').reply(200, {
     //     message: 'Not Found'

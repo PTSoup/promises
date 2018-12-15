@@ -14,7 +14,18 @@ var pluckFirstLineFromFileAsync = require('./promiseConstructor').pluckFirstLine
 var getGitHubProfileAsync = require('./promisification').getGitHubProfileAsync;
 
 var fetchProfileAndWriteToFile = function(readFilePath, writeFilePath) {
-  // TODO
+  return pluckFirstLineFromFileAsync(readFilePath)
+    .then(getGitHubProfileAsync)
+    .then((profile, reject) => {
+      if (profile) {
+        return fs.writeFileAsync(writeFilePath, JSON.stringify(profile), 
+          (err) => {
+            reject(err); 
+          }).catch((error) => {
+          console.log('Error');
+        });
+      }
+    });
 };
 
 // Export these functions so we can test them
